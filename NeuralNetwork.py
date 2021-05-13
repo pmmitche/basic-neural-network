@@ -1,8 +1,23 @@
 import numpy as np
 
+# sigmoid activation function
 def sigmoid(x):
     # f(x) = 1 / (1 + e^(-x))
     return 1 / (1 + np.exp(-x))
+
+
+def derivative_sigmoid(x):
+    # Derivative of sigmoid: f'(x) = f(x) * (1 - f(x))
+    fx = sigmoid(x)
+    return fx * (1 - fx)
+
+
+# mean squared error loss function for our network
+# goal is to minimize loss of our network
+def mse_loss(y_true, y_pred):
+    # inputs are np arrays of equal length
+    return ((y_true - y_pred) ** 2).mean()
+
 
 class Neuron:
     def __init__(self, weights, bias):
@@ -38,6 +53,4 @@ class NeuralNetwork:
         o1_out = self.o1.feedforward(out_o1_input)
         
         return o1_out
-
-    
     
