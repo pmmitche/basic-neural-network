@@ -1,2 +1,2 @@
 # basic-neural-network
-Basic NN written in python and numpy
+Basic NN written from scratch in python and numpy.
